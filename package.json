@@ -2,7 +2,11 @@
   "name": "pwtspommay",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:qa": "set ENV=qa&& npx playwright test tests/LoginPageTest.spec.ts",
+    "test:stg": "set ENV=stg&& npx playwright test tests/LoginPageTest.spec.ts",
+    "test:prod": "set ENV=stg&& npx playwright test tests/LoginPageTest.spec.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -12,6 +16,7 @@
     "@types/node": "^22.15.27"
   },
   "dependencies": {
+    "dotenv": "^16.5.0",
     "pwtspommay": "file:"
   }
 }
