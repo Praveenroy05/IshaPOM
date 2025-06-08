@@ -26,7 +26,7 @@ test.beforeAll(async ({browser})=>{
 
 })
 test.describe("Dashboard Page Test", async ()=>{
-test("Add the product to the cart", async ()=>{
+test("@smke Add the product to the cart", async ()=>{
     await dashboardPage.searchAndAddProductToCart(productName)
     await expect(dashboardPage.addToCartSuccessMsg).toContainText("Product Added To Cart")
 })
