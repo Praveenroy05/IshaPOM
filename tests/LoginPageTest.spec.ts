@@ -5,6 +5,8 @@ import { ENV } from '../utils/env'
 
 const incorrectPassword = "Test"
 
+test.describe.configure({mode: 'serial', retries : 4, timeout: 60000})
+
 let loginPage
 let dashboardPage
 test.beforeEach(async ({page})=>{
@@ -13,11 +15,22 @@ test.beforeEach(async ({page})=>{
     await loginPage.launchURL(ENV.baseUrl)
 })
 test("Valid Login Scenario", async ()=>{
-    await loginPage.validLogin(ENV.username, ENV.password)
+    await test.step("Login with valid credentials", async () => {
+        await loginPage.validLogin(ENV.username, ENV.password)
+    })
+    await test.step("Verify successful login", async () => {
     await expect(dashboardPage.homePageIdentifier).toBeVisible()
+    })
 })
 
 test("Invalid Login Scenario", async ()=>{
     await loginPage.invalidLogin(ENV.username, incorrectPassword)
     await expect(loginPage.errMessage).toBeVisible()
 })
+
+// Tags - smoke, regression
+// allure report - 
+// GitHub - 
+// Jenkins - 
+
+// Playwright MCP - AI - GitHub Actions

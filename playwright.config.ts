@@ -9,17 +9,16 @@ import path from 'path';
  // require('dotenv').config();
 // dotenv - is to load the data from the file
 // process.env - will reading the data from .env file
-const ENV_NAME = process.env.ENV
+const ENV_NAME = process.env.ENV || 'qa'
 
-console.log(process.env.BASE_URL);
-console.log(process.env.EMAIL);
-console.log(process.env.PASSWORD);
 
  dotenv.config({
     path : path.join(__dirname, 'TestData', `data.env.${ENV_NAME}`)
  })
-
- console.log(process.env);
+// console.log(process.env.BASE_URL);
+// console.log(process.env.EMAIL);
+// console.log(process.env.PASSWORD);
+// console.log(process.env);
 
 
 
@@ -36,7 +35,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : 1,
+  workers: process.env.CI ? 1 : 10,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
