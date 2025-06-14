@@ -18,14 +18,14 @@ test.beforeEach(async ({page})=>{
 
 for(let data of datas){
 test.describe("Dashboard Page Test", async ()=>{
-test(`Add the product to the cart for ${data.productName}`, async ()=>{
+test(`Add the product to the cart for ${data.productName}`, {tag: ['@smoke', '@regression']}, async ()=>{
     await loginPage.launchURL(data.url)
     await loginPage.validLogin(data.username, data.password)
     await expect(dashboardPage.homePageIdentifier).toBeVisible()
     await dashboardPage.searchAndAddProductToCart(data.productName)
     await expect(dashboardPage.addToCartSuccessMsg).toContainText("Product Added To Cart")
 })
-test(`Validate the product details for ${data.productName}`, async ()=>{
+test(`Validate the product details for ${data.productName}`, {tag: ['@smoke','@regression']}, async ()=>{
     await loginPage.launchURL(data.url)
     await loginPage.validLogin(data.username, data.password)
     await expect(dashboardPage.homePageIdentifier).toBeVisible()

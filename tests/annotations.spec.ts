@@ -11,3 +11,11 @@ test.slow() marks the test as slow and triples the test timeout.
 test.only() marks the test as the only one to run. Playwright will not run any other tests in the file.
 
 */
+
+
+// Tags - smoke, regression, e2e, api
+
+// 8 -regression
+// 7 - smoke
+
+

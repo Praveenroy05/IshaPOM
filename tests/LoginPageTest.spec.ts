@@ -14,7 +14,7 @@ test.beforeEach(async ({page})=>{
     dashboardPage = new DashboardPage(page)
     await loginPage.launchURL(ENV.baseUrl)
 })
-test("Valid Login Scenario", async ()=>{
+test("@smoke @regression Valid Login Scenario", async ()=>{
     await test.step("Login with valid credentials", async () => {
         await loginPage.validLogin(ENV.username, ENV.password)
     })
@@ -23,12 +23,17 @@ test("Valid Login Scenario", async ()=>{
     })
 })
 
-test("Invalid Login Scenario", async ()=>{
+test("@regression Invalid Login Scenario", async ()=>{
     await loginPage.invalidLogin(ENV.username, incorrectPassword)
     await expect(loginPage.errMessage).toBeVisible()
 })
 
 // Tags - smoke, regression
+// 2 ways - we can directly include the tags in the test or we can use the annotation
+// 
+
+
+
 // allure report - 
 // GitHub - 
 // Jenkins - 

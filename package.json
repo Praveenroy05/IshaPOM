@@ -5,7 +5,11 @@
   "scripts": {
     "test:qa": "set ENV=qa&& npx playwright test tests/LoginPageTest.spec.ts",
     "test:stg": "set ENV=stg&& npx playwright test tests/LoginPageTest.spec.ts",
-    "test:prod": "set ENV=prod&& npx playwright test tests/LoginPageTest.spec.ts"
+    "test:prod": "set ENV=prod&& npx playwright test tests/LoginPageTest.spec.ts",
+    "fullTestCase": "npx playwright test",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:regression": "npx playwright test --grep @regression",
+    "test:allure": "npx allure serve allure-results"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +17,9 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.27"
+    "@types/node": "^22.15.27",
+    "allure-commandline": "^2.34.0",
+    "allure-playwright": "^3.2.2"
   },
   "dependencies": {
     "dotenv": "^16.5.0",
