@@ -9,7 +9,7 @@
     "fullTestCase": "npx playwright test",
     "test:smoke": "npx playwright test --grep @smoke",
     "test:regression": "npx playwright test --grep @regression",
-    "test:allure": "npx allure serve allure-results"
+    "test:allure": "allure serve allure-results"
   },
   "keywords": [],
   "author": "",

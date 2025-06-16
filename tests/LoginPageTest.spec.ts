@@ -30,12 +30,16 @@ test("@regression Invalid Login Scenario", async ()=>{
 
 // Tags - smoke, regression
 // 2 ways - we can directly include the tags in the test or we can use the annotation
-// 
-
-
 
 // allure report - 
 // GitHub - 
-// Jenkins - 
 
-// Playwright MCP - AI - GitHub Actions
+
+
+
+// Jenkins - 
+// Keyboard Actions
+// Downloading a file
+// Calendar Selection
+
+// Playwright MCP servers
